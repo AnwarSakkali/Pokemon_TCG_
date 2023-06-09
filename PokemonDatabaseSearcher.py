@@ -87,6 +87,10 @@ def useSearchEngine(pokemon):
 
 
 from ReturnPokemonCardFromUrl import ReturnPokemonCardWithUrl
-list = useSearchEngine("Spiritomb")
+print("Write down the Pokémon you want to look up:")
+string = input()
+print("loading...")
+list = useSearchEngine(string)
 for url in list:
     ReturnPokemonCardWithUrl(url)
+input()
