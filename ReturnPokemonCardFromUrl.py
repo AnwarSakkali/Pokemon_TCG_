@@ -25,20 +25,22 @@ def ReturnPokemonCardWithUrl(URL):
     soup = BeautifulSoup(page.content, "html.parser")
     section = soup.find("section", class_="mosaic section card-detail")
 
-    ## basic Pokémon information
-    getBasicPokemonInfo(section)
-    
-    # Ruleboxes and moveset
-    getAbilities(section)
-    
-    ## Pokemon Stats
-    getPokemonStats(section)
+    try:
+        ## basic Pokémon information
+        getBasicPokemonInfo(section)
+        
+        # Ruleboxes and moveset
+        getAbilities(section)
+        
+        ## Pokemon Stats
+        getPokemonStats(section)
 
-    ## Illustrator
-    illustrator = section.find("h4", class_="highlight")
-    name = illustrator.find("a").text.strip()
-    print("illustrator: " + name)
-
+        ## Illustrator
+        illustrator = section.find("h4", class_="highlight")
+        name = illustrator.find("a").text.strip()
+        print("illustrator: " + name)
+    except:
+        print("This is not a Pokémon card, so the information will get skipped (Likely an item or supporter card)")
 
 # get basic information about a pokemon, this includes:
 # name | cardtype | (potential) evolution | HP

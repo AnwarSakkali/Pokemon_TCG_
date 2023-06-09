@@ -1,2 +1,5 @@
 images/Filtered/*
 __pycache__
+/build
+/dist
+*.spec
